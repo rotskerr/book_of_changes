@@ -31,6 +31,8 @@ class BookTable extends Table
                 ->sort()
                 ->filter(TD::FILTER_TEXT)
                 ->width(400),
+            TD::make('number', 'Номер')->sort()
+                ->filter(TD::FILTER_TEXT),
             TD::make('key_1', 'Ключ 1')->defaultHidden(),
             TD::make('key_2', 'Ключ 2')->defaultHidden(),
             TD::make('key_3', 'Ключ 3')->defaultHidden(),

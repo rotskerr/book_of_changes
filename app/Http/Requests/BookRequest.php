@@ -24,6 +24,7 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
+            'book.number' => ['required'],
             'book.text' => ['required'],
             'book.key_1' => ['boolean'],
             'book.key_2' => ['boolean'],

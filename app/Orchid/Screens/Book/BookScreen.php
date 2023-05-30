@@ -64,6 +64,7 @@ class BookScreen extends Screen
             Layout::modal('delete', Layout::rows([
                 Input::make('book.id')->type('hidden'),
                 TextArea::make('book.text')->readonly(),
+                Input::make('book.number')->readonly(),
                 Input::make('book.key_1')->readonly(),
                 Input::make('book.key_2')->readonly(),
                 Input::make('book.key_3')->readonly(),
@@ -83,11 +84,12 @@ class BookScreen extends Screen
 
     public function createOrUpdate(BookRequest $request): void
     {
-        //dd($request );
+//        dd($request->input('book.number') );
         $bookId = $request->input('book.id');
 
         $book = [
             'id' => $bookId,
+            'number' => $request->input('book.number'),
             'text' => $request->input('book.text'),
         ];
 
@@ -100,7 +102,7 @@ class BookScreen extends Screen
             }
             $book += ['key_'.$i => $key];
         }
-
+//  dd($book);
         Book::updateOrCreate([
             'id'=> $bookId
         ], $book);

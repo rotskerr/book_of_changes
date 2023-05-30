@@ -26,6 +26,7 @@ class CreateOrUpdate extends Rows
     {
         return [
             Input::make('book.id')->type('hidden'),
+            Input::make('book.number')->type('number'),
             TextArea::make('book.text')->required()->title('Текст')->help('Введіть опис'),
             CheckBox::make('book.key_1')
                 ->sendTrueOrFalse()
